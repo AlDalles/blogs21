@@ -22,10 +22,13 @@
             <a href="/post/{{$post->id}}/delete"  type="submit" >Удалить</a>
         </div>
         <div class="text-info bg-dark info">
-            <h3>category: {{$post->category->title}}</h3>
+            <h3>category: <a href="/post/{{$post->category_id}}/list/cat">{{$post->category->title}}</a></h3>
         </div>
         <div class="text-primary info">
-            <p>tags: {{$post->tags->pluck('title')->join(', ')}}</p>
+         <p>tags:
+                @foreach($post->tags as $tag)
+                    <a href="/post/{{$tag->id}}/list/tag">{{$tag->title}}</a>
+                @endforeach
         </div>
         </br>
         <p class = "info">{{$post->body}}</p>

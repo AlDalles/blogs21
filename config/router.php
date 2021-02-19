@@ -56,6 +56,8 @@ $router->get('/tag/update1','\Hillel\Controller\TagController@edit_select'); // 
 $router->post('/tag/update','\Hillel\Controller\TagController@edit1'); // редактирование тегов после выбора из пункта меню
 
 $router->get('/post/list','\Hillel\Controller\PostController@index');   //вывод постов
+$router->get('/post/{id}/list/tag','\Hillel\Controller\PostController@posts_tag');//ввывод постов по тегу
+$router->get('/post/{id}/list/cat','\Hillel\Controller\PostController@posts_category'); //вывод постов по категории
 $router->get('/post/create','\Hillel\Controller\PostController@create');//создание нового поста
 $router->post('/post/create','\Hillel\Controller\PostController@store');//сохранение поста после добавления
 $router->get('/post/{id}/edit','\Hillel\Controller\PostController@edit');//передача поста на редактирование

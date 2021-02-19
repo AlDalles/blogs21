@@ -13,6 +13,19 @@ class PostController{
         $posts = \Hillel\Model\Post::all();
         return view('pages/post/list',compact('posts'));
     }
+
+    public function posts_tag($id){
+           $posts=Tag::find($id)->posts;
+
+
+     return view('pages/post/list',compact('posts'));
+    }
+    public function posts_category($id){
+        $posts=Category::find($id)->posts;
+
+        return view('pages/post/list',compact('posts'));
+    }
+
     public function create(){
         $post = new Post();
         $categories =  Category::all();
