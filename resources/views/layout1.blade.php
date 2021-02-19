@@ -36,7 +36,7 @@
                 font-size: 3.5rem;
             }
             body {
-                max-width: 450px;
+                max-width: 1050px;
                 margin:auto;
                 color: #fff;
                 background-color: rgb(71, 163, 218);
