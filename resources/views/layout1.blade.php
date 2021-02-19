@@ -36,7 +36,7 @@
                 font-size: 3.5rem;
             }
             body {
-                max-width: 1050px;
+                max-width: 1550px;
                 margin:auto;
                 color: #fff;
                 background-color: rgb(71, 163, 218);
@@ -49,7 +49,7 @@
                 margin-bottom: 20px;
             }
             .form-textarea {
-                height: 100px;
+                height: 300px;
                 margin-bottom: 20px;
             }
             .select-form {
