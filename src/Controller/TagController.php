@@ -48,7 +48,13 @@ class TagController
     public function destroy($id){
 
         $tag =  Tag::find($id);
+      $title=$tag->title;
         $tag->delete();
+        $_SESSION['message'] = [
+            'status' => 'success',
+            'message' => "Tag \"{$title}\" successfully deleted",
+
+        ];
 
         return new RedirectResponse('/tag/list');
 
@@ -62,7 +68,15 @@ class TagController
 
     public function destroy_many(){
         $data = request()->all();
-       Tag::destroy($data[tags_id]);
+        $tags=Tag::find($data['tags_id']);
+        $_SESSION['message'] = [
+            'status' => 'success',
+            'message' => "Tags \"{$tags->pluck('title')->implode(' ,')}\" successfully deleted",
+
+        ];
+        Tag::destroy($data['tags_id']);
+
+
         return new RedirectResponse('/tag/list');
     }
 

@@ -50,7 +50,13 @@ class CategoryController
     public function destroy($id){
 
         $category =  Category::find($id);
+        $title=$category->titile;
         $category->delete();
+        $_SESSION['message'] = [
+            'status' => 'success',
+            'message' => "Category \"{$title}\" successfully deleted",
+
+        ];
 
         return new RedirectResponse('/category/list');
 
@@ -64,8 +70,13 @@ class CategoryController
 
     public function destroy_many(){
         $data = request()->all();
-      //var_dump($data);
-          Category::destroy($data[categories_id]);
+      $categories=Category::find($data['categories_id']);
+        $_SESSION['message'] = [
+            'status' => 'success',
+            'message' => "Categories \"{$categories->pluck('title')->implode(' ,')}\" successfully deleted",
+
+        ];
+          Category::destroy($data['categories_id']);
         return new RedirectResponse('/category/list');
     }
 

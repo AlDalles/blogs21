@@ -110,8 +110,13 @@ class PostController{
     public function destroy($id){
 
         $post =  Post::find($id);
+        $title=$post->title;
         $post->delete();
+                $_SESSION['message'] = [
+            'status' => 'success',
+            'message' => "Post \"{$title}\" successfully deleted",
 
+        ];
 
         return new RedirectResponse('/post/list');
 
