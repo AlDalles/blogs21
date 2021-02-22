@@ -67,7 +67,7 @@ class PostController{
         }
    public function update($id){
 
-        $data = request()->all();
+
        $data = request()->all();
        $validator = validator()->make($data, [
            'title'=> ['required','min:5','unique:categories,title'],

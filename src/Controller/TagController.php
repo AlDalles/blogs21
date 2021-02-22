@@ -80,6 +80,8 @@ class TagController
         return new RedirectResponse('/tag/list');
     }
 
+
+
     public function edit($id){
         $tag =  Tag::find($id);
         return view('pages/tag/edit',compact('tag'));
